@@ -6,7 +6,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./style/train.css">
-    
+    <!--moments-->
+    <script scr="https://cdn.jsdeliver.net/momentjs/2.12.0/moment.min.js"></script>    
     <!--start firebase-->
     <script src="https://trainscheduler-3f474.firebaseio.com/"
     <!--bootstrap-->
@@ -21,8 +22,8 @@
         <br>
 
         <div class="jumbotron">
-            <h1 class="text-center">Anytime is Train Time</h1>
-            <h3 class="text-center">Choo Choo...Chee Chee</h3><br>
+            <h1 class="text-center">Jackie's Metro Transit</h1>
+            <h3 class="text-center">Choo Choo...Choo Choo</h3><br>
             <h5 class="text-center"></h5>
         </div>
         <!--info on current trains-->
@@ -59,24 +60,24 @@
         <div class="panel-body">
           <form role="merge">
             <div class="add-info">
-                <label for="nmInput">Train Name: </label>
-                <input class="form-control" id="nm-Input" type="text">
+                <label for="nm-input">Train Name: </label>
+                <input class="form-control" id="nm-input" type="text">
             </div>
             <div class="add-info">
-                <label for="destInput">Destination: </label>
-                <input class="form-control" id="dest-Input" type="text">
+                <label for="dest-input">Destination: </label>
+                <input class="form-control" id="dest-input" type="text">
             </div>
             <div class="add-info">
                 <label for="firtratimInput">First Train Time (HH:mm-military time): </label>
-                <input class="form-control" id="firtratim-Input" type="time">
+                <input class="form-control" id="firtratim-input" type="time">
             </div>
             <div class="add-info">
                 <label for="freqInput">Frequency (min):</label>
-                <input class="form-control" id="freq-Input" type="number">
+                <input class="form-control" id="freq-input" type="number">
 
             </div>
 
-            <button type="button" onclick="alert('click me!')">Submit!</button>
+            <button class="btn btn-default" id="another-train" type="submit">Submit</button>
  
             </div>
            
