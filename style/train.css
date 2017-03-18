@@ -2,5 +2,20 @@
 
 
 			color: white;
-			background-color: #0b602d
+			background-color: #3a373a
 }
+
+
+	.panel-title{
+		color: white;
+	
+}
+
+	.panel-default>.panel-heading{
+		background-color: #3a373a
+
+	}
+
+	.btn{
+		margin-left: 50%c
+	}

@@ -11,7 +11,10 @@ $(document).ready(function()
   				// getting fb db started and the time displayed//
   				var database = firebase.database();
 
-  				var userTime = moment().format('MMM Do YYY, h:mm:ss a');
+  				//var userTime = moment().format('MMM Do YYY, h:mm:ss a');//
+            var date = '2010-06-30';
+            var result = moment(date).endof('week');
+            console.log(result);
 
   				$("#userTime").append(userTime)
 
@@ -43,7 +46,7 @@ $(document).ready(function()
   						freQuency: freQuency,
 
   						dateAdded:
-  				firebase.database.ServerValue.TIMESTAMP,
+  		firebase.database.ServerValue.TIMESTAMP,
   						});
 
   					//emptying form//
@@ -52,7 +55,65 @@ $(document).ready(function()
   					$("#firtratim-input").val("");
   					$("#freq-input").val("");
 
-  				}
+  				});
+
+
+          database.ref("/trains").on("child_added",
+      function(childsnapshot) {
+  //start//
+          var tName = childsnapshot.val().trainName;
+          var tDestination = childsnapshot.val()Desination;
+          var tFreQuency = childsnapshot.val()freQuency;
+          var tFirstTrain =
+      childsnapshot.val().firsttrainTime;
+
+      {
+        //current time calculation and substract the first train//
+          var differTimes = 
+      moment().diff(moment.unix(tFirstTrain), "minutes");
+          var tReminder = 
+      moment().diff(moment.unix(tFirstTrain), "minutes") %
+      tFreQuency;
+          var tMinutes = tFreQuency - tReminder
+
+      //arrival time to minutes to train to current time//
+          var tArrival = moment().add(tMinutes
+      "m").format("hh:mm A");
+
+            if (tMinutes <= 5 ) {
+            $("#5min").append(
+                "<tr>" +
+                "<td>" + tName + "</td>" +
+                "<td>" + tDestination + "</td>" +
+                "<td>" + tFreQuency + "</td>" +
+                "<td>" + tArrival + "</td>" +
+                "<td><font color='blue'>" + tMinutes +
+        "</td></font>" + "</tr>");
+              return;      
+          } 
+
+
+        //DOM//
+          $("#tTable").append(
+              "<tr>" +
+              "<td>" + tName + "</td>" +
+              "<td>" + tDestination + "</td>" +
+              "<td>" + tFreQuency + "</td>" +
+              "<td>" + tArrival + "</td>" +
+              "<td>" + tMinutes + "</td>" + "</tr>"
+          );
+
+        }, function(errorObject) {
+            console.log("Errors handled: " + errorObject.code);
+
+        });
+
+    });
+
+
+
+
+
 
 
 
