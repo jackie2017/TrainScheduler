@@ -1,4 +1,5 @@
 $(document).ready(function()
+
 {
 				var config = {
     			apiKey: "AIzaSyDsIyfAghfH8B4rYtv-BMb0WwB_JrklxC4",
@@ -11,7 +12,7 @@ $(document).ready(function()
   				// getting fb db started and the time displayed//
   				var database = firebase.database();
 
-  				//var userTime = moment().format('MMM Do YYY, h:mm:ss a');//
+  				  var userTime = moment().format('MMM Do YYY, h:mm:ss a');
             var date = '2010-06-30';
             var result = moment(date).endof('week');
             console.log(result);
@@ -26,7 +27,7 @@ $(document).ready(function()
   				var initialTime = [];
 
   				//to create button//
-  				$("another-train").on("click", function(){
+  				$("add-another").on("click", function(){
 
   					//do not need to refresh page//
   					event.preventDefault();
@@ -50,10 +51,10 @@ $(document).ready(function()
   						});
 
   					//emptying form//
-  					$("#nm-input").val("");
-  					$("#dest-input").val("");
-  					$("#firtratim-input").val("");
-  					$("#freq-input").val("");
+  					$("#nm-input").val(" ");
+  					$("#dest-input").val(" ");
+  					$("#firtratim-input").val(" ");
+  					$("#freq-input").val(" ");
 
   				});
 
